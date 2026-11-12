@@ -1,3 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /preview/
+Disallow: /signature.html
 Sitemap: https://mvpdigitalassets.com/sitemap.xml
