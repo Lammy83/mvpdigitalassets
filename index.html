@@ -152,7 +152,7 @@ details[open] .faq-plus{transform:rotate(45deg)}
 </div>
 <div style="margin-top: 20px; border: 1px solid #C9D2FF; border-radius: 14px; padding: 22px 26px; background: #EEF1FF; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 28px">
 <p style="margin: 0; flex: 1 1 460px; min-width: 0; font-size: 16px; color: #3D434C"><strong style="color: #111418">Launching your own consulting or service business?</strong> We build sites and simple tools, like booking and inquiry forms, for people starting out too. No tech skills needed.</p>
-<a href="mailto:info@mvpdigitalassets.com?subject=Launching%20a%20new%20business" style="flex: 0 0 auto; font-weight: 600; text-decoration: none">Tell us what you're launching →</a>
+<a href="/?topic=launch#contact" style="flex: 0 0 auto; font-weight: 600; text-decoration: none">Tell us what you're launching →</a>
 </div>
 </div>
 </section>
@@ -290,16 +290,45 @@ details[open] .faq-plus{transform:rotate(45deg)}
 </section>
 
 <section id="contact" style="padding: 96px 24px">
-<div style="max-width: 1160px; margin: 0 auto; background: #2343E0; color: #FFFFFF; border-radius: 22px; padding: 56px 48px; display: flex; flex-wrap: wrap; gap: 40px; align-items: center; justify-content: space-between">
-<div style="flex: 1 1 460px; min-width: 0">
+<style>
+.cf label{display:grid;gap:6px;font-size:14px;font-weight:500;color:#E4E9FF}
+.cf input,.cf select,.cf textarea{font:inherit;font-size:16px;color:#111418;background:#FFFFFF;border:0;border-radius:10px;padding:13px 14px;width:100%;box-sizing:border-box}
+.cf textarea{min-height:110px;resize:vertical}
+.cf .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:560px){.cf .row{grid-template-columns:1fr}}
+.cf button{font:inherit;font-weight:600;font-size:16px;background:#FFFFFF;color:#111418;border:0;border-radius:10px;padding:15px 22px;cursor:pointer}
+.cf button:hover{background:#E4E9FF}
+</style>
+<div style="max-width: 1160px; margin: 0 auto; background: #2343E0; color: #FFFFFF; border-radius: 22px; padding: 56px 48px; display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start; justify-content: space-between">
+<div style="flex: 1 1 380px; min-width: 0">
 <h2 style="margin: 0 0 14px; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 42px; letter-spacing: -0.02em; line-height: 1.08">Want to see your free preview?</h2>
-<p style="margin: 0; font-size: 18px; color: #E4E9FF">Send your business name and town. We'll build a preview of your homepage and send you the link.</p>
+<p style="margin: 0 0 22px; font-size: 18px; color: #E4E9FF">Tell us your business name and town, or what you're launching. We'll get back to you within one business day.</p>
+<p style="margin: 0; font-size: 15px; color: #E4E9FF">Prefer to talk? Call or text <a href="tel:+12014827471" style="color: #FFFFFF; font-weight: 600">(201) 482-7471</a><br>or email <a href="mailto:info@mvpdigitalassets.com" style="color: #FFFFFF; font-weight: 600">info@mvpdigitalassets.com</a></p>
 </div>
-<div style="flex: 0 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
-<a href="mailto:info@mvpdigitalassets.com?subject=Free%20website%20preview" style="background: #FFFFFF; color: #111418; text-decoration: none; padding: 16px 22px; border-radius: 10px; font-weight: 600; text-align: center">Email info@mvpdigitalassets.com</a>
-<p style="margin: 0; text-align: center; font-size: 15px; color: #E4E9FF">or call or text <a href="tel:+12014827471" style="color: #FFFFFF; font-weight: 600">(201) 482-7471</a></p>
+<form class="cf" name="contact" method="POST" action="/thanks/" data-netlify="true" netlify-honeypot="bot-field" style="flex: 1 1 440px; min-width: 0; display: grid; gap: 14px">
+<input type="hidden" name="form-name" value="contact">
+<p style="display:none"><label>Leave this empty <input name="bot-field"></label></p>
+<div class="row">
+<label>Your name<input name="name" required autocomplete="name"></label>
+<label>Business name (if you have one)<input name="business" autocomplete="organization"></label>
 </div>
+<div class="row">
+<label>Email<input name="email" type="email" required autocomplete="email"></label>
+<label>Phone (optional)<input name="phone" type="tel" autocomplete="tel"></label>
 </div>
+<label>I'm interested in<select name="topic" id="topic">
+<option value="Free website preview">A free website preview</option>
+<option value="Launching a new business">Launching a new business</option>
+<option value="Custom tool">A custom tool</option>
+<option value="Something else">Something else</option>
+</select></label>
+<label>Tell us a little more<textarea name="message" placeholder="Your town, what you do, anything we should know"></textarea></label>
+<button type="submit">Send</button>
+</form>
+</div>
+<script>
+(function(){try{var t=new URLSearchParams(location.search).get("topic");var m={preview:"Free website preview",launch:"Launching a new business",tool:"Custom tool"};if(t&&m[t])document.getElementById("topic").value=m[t];}catch(e){}})();
+</script>
 </section>
 
 <footer style="border-top: 1px solid #E2E0D8; padding: 32px 24px 44px">
